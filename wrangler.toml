@@ -1,0 +1,52 @@
+name = "cf-telegram-trade-analyst-bot"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+node_compat = true
+
+# ---- Durable Object for memory ----
+durable_objects.bindings = [
+  { name = "MEMORY", class_name = "MemoryDO" }
+]
+
+migrations = [
+  { tag = "v1", new_classes = ["MemoryDO"] }
+]
+
+# ---- Workers AI binding (Cloudflare AI) ----
+ai = { binding = "AI" }
+
+# ---- Optional KV for caching news ----
+kv_namespaces = [
+  { binding = "KV", id = "PUT_YOUR_KV_ID_HERE", preview_id = "PUT_YOUR_KV_PREVIEW_ID_HERE" }
+]
+
+# ---- ENV VARS (set these as secrets/vars in Cloudflare dashboard or wrangler) ----
+# TELEGRAM_BOT_TOKEN
+# TELEGRAM_WEBHOOK_SECRET (random string)
+# TELEGRAM_ADMIN_CHAT_ID (optional)
+#
+# NEWSAPI_KEY
+# GOOGLE_CSE_API_KEY
+# GOOGLE_CSE_CX
+#
+# OPENAI_API_KEY
+# OPENAI_TEXT_MODEL (default: gpt-4o-mini)
+# OPENAI_VISION_MODEL (default: gpt-4o-mini)
+# OPENAI_IMAGE_MODEL (default: dall-e-3)
+#
+# GEMINI_API_KEY
+# GEMINI_TEXT_MODEL (default: gemini-1.5-flash)
+#
+# NANOBANANA_API_URL (optional)
+# NANOBANANA_API_KEY (optional)
+#
+# HF_API_URL (optional, e.g. your inference endpoint)
+# HF_API_KEY (optional)
+#
+# CF_TEXT_MODEL (default: @cf/meta/llama-3.1-70b-instruct)
+# CF_VISION_MODEL (default: @cf/llava-hf/llava-1.5-7b-hf)
+# CF_IMAGE_MODEL (default: @cf/stabilityai/stable-diffusion-xl-base-1.0)
+# CF_GEMMA_MODEL (default: @cf/google/gemma-2b-it)
+#
+# MEMORY_MAX_TURNS (default: 20)
+# MEMORY_SUMMARY_TRIGGER (default: 28)

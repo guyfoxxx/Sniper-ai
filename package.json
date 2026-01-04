@@ -1,0 +1,21 @@
+{
+  "name": "cf-telegram-trade-analyst-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "format": "prettier --write \"src/**/*.ts\" \"README.md\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250601.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.76.0"
+  }
+}
